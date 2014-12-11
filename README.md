@@ -2,7 +2,7 @@
 
 This is a collection of notes on fixed point combinators, gathered
 from references in Viksit Gaur's [Practical Applications of the Y Combinator in
-Clojure](http://www.viksit.com/tags/clojure/practical-applications-y-combinator-clojure/#fn-364-11)
+Clojure](http://www.viksit.com/tags/clojure/practical-applications-y-combinator-clojure/)
 
 ## Usage
 
