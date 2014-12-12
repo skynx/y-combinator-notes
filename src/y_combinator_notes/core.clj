@@ -104,7 +104,7 @@
 
   ;; The function `fixed-point` contains an internally defined
   ;; function `iter` that is handling both iteration and the
-  ;; termination condition, `within-epsilon`. By employing the
+  ;; termination condition, `within-tolerance`. By employing the
   ;; proposition above, let's write a Y-ready function from `iter`
   ;; that will help us achieve something similar, separating
   ;; termination and allowing Y to perform the iteration.
@@ -114,7 +114,7 @@
   (defn fixed-point-Y [f s]
     (letfn [(iter-Y [g]
               (fn [old new]
-                (if (within-epsilon? old new)
+                (if (within-tolerance? epsilon old new)
                   new
                   (g new (f new)))))])
     ((Y iter-Y) s (f s)))
@@ -224,7 +224,7 @@
   ;; The macro below facilitates demonstrating this speed advantage.
 
 (defmacro time-float
-  "Evaluates expr and returns the time in nanoseconds it took as a double."
+  "Evaluates expr and returns the time in nanoseconds it took as a float."
   [expr]
   `(let [start# (. System (nanoTime))
          ret# ~expr]
